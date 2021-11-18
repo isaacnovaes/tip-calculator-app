@@ -15,7 +15,6 @@ main {
 	padding: 20px 30px;
 	background-color: var(--white);
 	border-radius: 35px 35px 0 0;
-	
 }
 
 .block-calculator-data {
@@ -25,6 +24,19 @@ main {
 		font-size: 0.7rem;
 		color: var(--dark-grayish-cyan);
 		margin-bottom: 15px;
+		span {
+			display: inline-block;
+			color: var(--error);
+			opacity: 0;
+			transform: translateX(-50px);
+			transition: 0.5s;
+		}
+	}
+	> label.error {
+		span {
+			opacity: 1;
+			transform: translateX(0);
+		}
 	}
 }
 
@@ -59,6 +71,11 @@ main {
 		background-color: inherit;
 		transition: 0.5s;
 		outline: 2px solid inherit;
+		text-overflow: ellipsis;
+
+		&::placeholder {
+			color: var(--very-dark-cyan);
+		}
 
 		&:focus {
 			outline: 2px solid var(--strong-cyan);
@@ -101,6 +118,7 @@ main {
 		outline: 2px solid var(--white);
 		outline-offset: 5px;
 		outline: 2px solid inherit;
+		color: var(--very-dark-cyan);
 
 		&::placeholder {
 			color: var(--light-grayish-cyan);

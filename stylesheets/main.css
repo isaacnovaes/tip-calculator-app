@@ -9,6 +9,7 @@
   --dark-blueish-cyan: hsl(185, 41%, 84%);
   --light-blueish-cyan: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
+  --error: rgba(255, 0, 0, 0.822);
 }
 
 html {
@@ -111,6 +112,22 @@ main {
   margin-bottom: 15px;
 }
 
+.block-calculator-data > label span {
+  display: inline-block;
+  color: var(--error);
+  opacity: 0;
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.block-calculator-data > label.error span {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
 .block-input {
   background-color: var(--light-blueish-cyan);
   display: -webkit-box;
@@ -152,6 +169,23 @@ main {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: 2px solid inherit;
+  text-overflow: ellipsis;
+}
+
+.block-input input::-webkit-input-placeholder {
+  color: var(--very-dark-cyan);
+}
+
+.block-input input:-ms-input-placeholder {
+  color: var(--very-dark-cyan);
+}
+
+.block-input input::-ms-input-placeholder {
+  color: var(--very-dark-cyan);
+}
+
+.block-input input::placeholder {
+  color: var(--very-dark-cyan);
 }
 
 .block-input input:focus {
@@ -202,6 +236,7 @@ main {
   outline: 2px solid var(--white);
   outline-offset: 5px;
   outline: 2px solid inherit;
+  color: var(--very-dark-cyan);
 }
 
 .block-tip-input .custom::-webkit-input-placeholder {
