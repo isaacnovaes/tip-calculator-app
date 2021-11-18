@@ -16,12 +16,12 @@
 		<main>
 			<form autocomplete="off">
 				<div class="block-calculator-data">
-					<label for="bill-input">Bill</label>
+					<label for="bill-input">Bill <span>has to be greater than zero</span></label>
 					<div class="block-bill-input block-input">
 						<img src="images/icon-dollar.svg" alt="Dollar icon" />
-						<input type="number" name="bill-input" value="100.00" id="bill-input" />
+						<input type="number" name="bill-input" placeholder="100.00" id="bill-input" />
 					</div>
-					<label for="tip">Select Tip %</label>
+					<label for="tip">Select Tip % <span>can't be zero</span></label>
 					<div class="block-tip-input">
 						<div class="tip">5%</div>
 						<div class="tip">10%</div>
@@ -30,7 +30,7 @@
 						<div class="tip">50%</div>
 						<input type="number" class="tip custom" placeholder="Custom" id="tip" />
 					</div>
-					<label for="number-of-people-input">Number of People</label>
+					<label for="number-of-people-input">Number of People <span>Invalid number</span></label>
 					<div class="bock-number-of-people-input block-input">
 						<img src="images/icon-person.svg" alt="Person profile icon" />
 						<input type="number" name="bill-input" value="5" id="number-of-people-input" />
