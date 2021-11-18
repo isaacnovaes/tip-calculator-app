@@ -1,6 +1,6 @@
 # Frontend Mentor - Tip calculator app solution
 
-[Live Site](https://your-live-site-url.com)
+[Live Site](https://tip-calculator-isaac.netlify.app/)
 ![Project Overview](design/desktop-preview.jpg)
 
 ## Table of contents
@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Links
 
-- [Live Site URL](https://your-live-site-url.com)
+- [Live Site URL](https://tip-calculator-isaac.netlify.app/)
 
 ## My process
 
