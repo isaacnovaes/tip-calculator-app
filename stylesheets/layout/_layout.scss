@@ -83,6 +83,12 @@ main {
 	}
 }
 
+.block-error,
+.block-error:focus,
+.block-error:hover {
+	outline: 2px solid var(--error);
+}
+
 .block-tip-input {
 	display: flex;
 	justify-content: space-between;
