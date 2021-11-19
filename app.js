@@ -5,6 +5,8 @@ const blockTipInput = document.querySelector(".block-tip-input");
 const tipsInput = document.querySelectorAll(".tip");
 const customInput = document.querySelector(".custom");
 const numberOfPeopleInput = document.getElementById("number-of-people-input");
+const tipPerPerson = document.querySelector(".block-tip-amount .show-data span");
+const totalPerPerPerson = document.querySelector(".block-total .show-data span");
 const resetButton = document.querySelector("button[type='reset']");
 
 let bill = 100;
@@ -12,7 +14,7 @@ let tip = 0.15;
 let numberOfPeople = 5;
 
 // set and validate bill
-billInput.addEventListener("change", (event) => {
+billInput.addEventListener("input", (event) => {
 	let inputValue = event.target.value;
 	if (+inputValue > 0) {
 		inputValue = +inputValue;
@@ -39,7 +41,7 @@ blockTipInput.addEventListener("click", (event) => {
 });
 
 // validate custom input
-customInput.addEventListener("change", (event) => {
+customInput.addEventListener("input", (event) => {
 	let inputValue = event.target.value;
 	if (+inputValue > 0) {
 		tip = +inputValue / 100;
@@ -53,7 +55,7 @@ customInput.addEventListener("change", (event) => {
 });
 
 // validate input of number of people
-numberOfPeopleInput.addEventListener("change", (event) => {
+numberOfPeopleInput.addEventListener("input", (event) => {
 	if (event.target.value <= 0 || event.target.value > 10000) {
 		showError(event);
 		numberOfPeople = undefined;
@@ -61,6 +63,17 @@ numberOfPeopleInput.addEventListener("change", (event) => {
 	}
 	numberOfPeople = +event.currentTarget.value;
 	calculateTip(tip, bill, numberOfPeople);
+});
+
+// reset app data
+resetButton.addEventListener("click", (event) => {
+	event.preventDefault();
+	bill = tip = numberOfPeople = undefined;
+	billInput.value = billInput.placeholder = "0.00";
+	numberOfPeopleInput.value = 0;
+	customInput.value = "";
+	tipsInput.forEach((tip) => tip.classList.remove("tip-selected"));
+	tipPerPerson.innerText = totalPerPerPerson.innerText = "$0.00";
 });
 
 function showError(event) {
@@ -81,12 +94,10 @@ function calculateTip(tip, bill, numberOfPeople) {
 	let totalResult = (bill * (1 + tip)) / numberOfPeople;
 
 	tipResult > 1000000
-		? (tipPerPerson.innerText = tipResult.toPrecision(3))
-		: (tipPerPerson.innerText = tipResult.toFixed(2));
+		? (tipPerPerson.innerText = `$${tipResult.toPrecision(3)}`)
+		: (tipPerPerson.innerText = `$${tipResult.toFixed(2)}`);
 
 	totalResult > 1000000
-		? (totalPerPerPerson.innerText = totalResult.toPrecision(3))
-		: (totalPerPerPerson.innerText = totalResult.toFixed(2));
+		? (totalPerPerPerson.innerText = `$${totalResult.toPrecision(3)}`)
+		: (totalPerPerPerson.innerText = `$${totalResult.toFixed(2)}`);
 }
-
-// implement reset button functionality
