@@ -77,10 +77,13 @@ resetButton.addEventListener("click", (event) => {
 });
 
 function showError(event) {
+	const block = event.target.parentElement;
 	const label = event.target.parentElement.previousElementSibling;
 	label.classList.add("error");
+	block.classList.add("block-error");
 	setTimeout(() => {
 		label.classList.remove("error");
+		block.classList.remove("block-error");
 	}, 2000);
 }
 
