@@ -51,7 +51,7 @@ customInput.addEventListener("input", (event) => {
 
 	customInput.value = "";
 	tip = undefined;
-	showError(event);
+	showError(event, true);
 });
 
 // validate input of number of people
@@ -76,11 +76,11 @@ resetButton.addEventListener("click", (event) => {
 	tipPerPerson.innerText = totalPerPerPerson.innerText = "$0.00";
 });
 
-function showError(event) {
+function showError(event, custom = false) {
 	const block = event.target.parentElement;
 	const label = event.target.parentElement.previousElementSibling;
 	label.classList.add("error");
-	block.classList.add("block-error");
+	if (!custom) block.classList.add("block-error");
 	setTimeout(() => {
 		label.classList.remove("error");
 		block.classList.remove("block-error");
